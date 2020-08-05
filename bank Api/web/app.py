@@ -1,6 +1,6 @@
 from flask import Flask,jsonify,request
 from flask_restful import Api,Resource
-from flask.views import MethodView
+import os
 
 from pymongo import MongoClient
 import bcrypt
@@ -14,7 +14,7 @@ db=client.BankAPI
 
 users=db["Users"]
 def UserExist(unsername):
-    if users.find({"Username":username}).count()==0:
+    if users.find({"username":username}).count()==0:
         return False
     else:
         return True
